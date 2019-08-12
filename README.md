@@ -3,21 +3,42 @@ I have this problem that I use a windows PC in the lab, a macbook pro laptop, bu
 
 # Usage:
 ## Import the toolbox
+```python
 import os
 import deeplabcut
 from pathlib import Path
+```
 
 ## Make sure deeplabcut is working
+```python
 deeplabcut.__version__
+```
 
 ## Make sure tensorflow is working
+```python
 import tensorflow as tf
 tf.__version__
+```
 
-## Define project
-task='Neuroleg'
-experimenter='Justin'
-video='leftleg-train.mp4'
-cwd = os.getcwd()
-
+## Define project and setup dlc_wrapper config
+```python
+ cfg = {
+     "wd": Path.cwd(),
+     "task": "MRILegmovements",
+     "subject": "AB01",
+     "date": "2019-04-19",
+     "video": ['Calibration_and_Training.mp4'],
+     "config": "config.yaml",
+     "bodyparts":["RK_above", "RK_center", "RK_below",
+                  "RA_above","RA_center","RA_below",
+                  "LK_above","LK_below",
+                  "LA_above","LK_below"],
+     "numframes": 40,
+ }
+ ```
+## Call dlc_wrapper class
+The class will simply load the project if it already exists, otherwise it will create the directory and rename the paths.
+```python
+dlc = dlc_wrapper(cfg)
+```
 
