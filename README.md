@@ -1,6 +1,20 @@
 # Wrapper for [deeplabcut toolbox](https://github.com/AlexEMG/DeepLabCut)
 I have this problem that I use a windows PC in the lab, a macbook pro laptop, but enjoy training my models on the Linux-based cluster on campus. So... the dreaded problem of \ vs /. I developed this personal module containing a dlc_wrapper class for manipulating the file paths. With the new version of DeepLabCut, some of these issues have been resolved. Nonetheless, I still use this to help resolve path related problems when they arise.
 
+As a side note, I was trying to do some movement tracking during an fMRI scan. We used mirrors to reflect the movements out towards the window and we used a camera/tripod setup for recording. 
+
+<p align="left">
+   <img src="./images/mri_mirror_setup.png" width=600 />
+<p> 
+
+We ended up with something like this:
+ 
+<p align="left">
+   <img src="./images/DLC_MRI_tracking.gif" width=600 />
+<p> 
+
+It is not perfect but it was a neat way to starting thinking about tracking movement in the scanner w/o the use of expensive sensors.
+ 
 # Usage:
 ## Import the toolbox
 ```python
